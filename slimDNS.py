@@ -27,7 +27,7 @@ import time
 
 if sys.implementation.name != "micropython":
     const = lambda x:x
-    ticks_ms = lambda : time.clock() * 1000.
+    ticks_ms = lambda : time.perf_counter() * 1000.
     ticks_diff = lambda a, b: b - a
 else:
     ticks_ms = time.ticks_ms
