@@ -323,7 +323,7 @@ class SlimDNSServer:
             readers, _, _ = select([self.sock], [], [], None)
             self.process_waiting_packets()
 
-    def handle_question(self, q, answer_callback, fast=False, retry_count=3):
+    def handle_question(self, q, answer_callback, fast=False, retry_count=100):
         # Send our a (packed) question, and send matching replies to
         # the answer_callback function.  This will stop after sending
         # the given number of retries and waiting for the a timeout on
